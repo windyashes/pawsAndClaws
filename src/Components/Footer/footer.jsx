@@ -1,0 +1,1 @@
+// The footer should contain svg logos of social sites with links to our socials, and our business email and number.

@@ -84,12 +84,30 @@ function PremadeList() {
       {/* Scrollable Listings Row */}
       <Row>
         <Col>
+          <style>{`
+            .premade-scroll-container::-webkit-scrollbar {
+              height: 12px;
+            }
+            .premade-scroll-container::-webkit-scrollbar-track {
+              background: #f1f1f1;
+              border-radius: 6px;
+            }
+            .premade-scroll-container::-webkit-scrollbar-thumb {
+              background: #888;
+              border-radius: 6px;
+            }
+            .premade-scroll-container::-webkit-scrollbar-thumb:hover {
+              background: #555;
+            }
+          `}</style>
           <div 
-            className="d-flex flex-nowrap overflow-auto pb-3"
+            className="d-flex flex-nowrap overflow-auto pb-3 premade-scroll-container"
             style={{ 
-              scrollbarWidth: 'thin',
-              msOverflowStyle: 'auto',
-              WebkitOverflowScrolling: 'touch'
+              scrollbarWidth: 'auto',
+              msOverflowStyle: 'scrollbar',
+              WebkitOverflowScrolling: 'touch',
+              overflowX: 'scroll',
+              overflowY: 'hidden'
             }}
           >
             {listings.length === 0 ? (

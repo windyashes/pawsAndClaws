@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function SocialFeed() {
   return (
-    <div></div>
+    <div>social feed</div>
   )
 }
 

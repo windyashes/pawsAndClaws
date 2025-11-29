@@ -6,6 +6,8 @@ import AdminPage from '../Admin/adminPage';
 import useAuthStore from '../../store/authStore';
 import PremadeList from '../Available/premade-list';
 import Customs from '../Customs/customs';
+import SocialFeed from '../Social Feed/socialFeed';
+import Portfolio from '../Previous Works/portfolio';
 
 function App() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
@@ -15,9 +17,11 @@ function App() {
       <Header />
       {isAuthenticated ? <AdminPage /> : (
         <>
-          <About />
           <PremadeList />
           <Customs />
+          <About />
+          <SocialFeed />
+          <Portfolio />
         </>
       )}
     </div>

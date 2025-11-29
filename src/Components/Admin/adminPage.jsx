@@ -7,7 +7,9 @@ import CustomerPipeline from './Customer Pipeline/customerPipeline';
 
 function AdminPage() {
   return (
-    <div>this is the admin pafe</div>
+    <div>this is the admin page.
+      <ListingEditor />
+    </div>
   )
 }
 
