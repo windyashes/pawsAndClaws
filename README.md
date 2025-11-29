@@ -1,9 +1,20 @@
-yippee!!!
-tools I will need
--react framework and react bootstrap for mobile and desktop views
--postgres for use as a database to store listings and pipeline info
--express to send between server and frontend
--I dont believe I need any state management like zustand or react redux as the user shouldnt have to interact too hard with the site yet
+# Paws & Claws business site
 
-alright I got a hello world up and running and it's connected to a database if I need that lol.
-Now I just need to... design the website lol
+## Features
+- Displays current product listings for sale
+- A table with prices and details for customs
+- An admin login with admin page
+
+## Planned Features
+- Adding a social feed on the website that displays business account posts on ig/twitter/tiktok
+- Adding support on the admin page to create, edit, and delete pre-made and custom listings
+- adding a pipeline on the admin page to track customer info and order progress
+- making it pretty :)
+
+## Tools used:
+- Uses the react framework for javascript
+- Utilizes react bootstrap components for respnsive design
+- Uses zustand for state management
+- Uses node.js for package management
+- Uses Postgres for database and queries
+- Heavy use of cursor because I kind of forgot how to write code lol.
