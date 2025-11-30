@@ -26,7 +26,8 @@ CREATE TABLE pre_made_listings (
 CREATE TABLE customers (
     id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name text NOT NULL,
-    contact_info text
+    contact_info text,
+    notes text
 );
 
 CREATE TABLE pipeline (

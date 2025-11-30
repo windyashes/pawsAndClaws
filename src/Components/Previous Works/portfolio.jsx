@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Portfolio() {
   return (
-    <div>portfolio</div>
+    <div>Portfolio in development...</div>
   )
 }
 

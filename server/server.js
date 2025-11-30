@@ -21,6 +21,9 @@ app.use('/api/admin', adminRouter);
 const listingsRouter = require('./Routes/listings.router');
 app.use('/api/listings', listingsRouter);
 
+const customerRouter = require('./Routes/customer.router');
+app.use('/api/customers', customerRouter);
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

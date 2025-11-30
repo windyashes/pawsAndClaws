@@ -10,6 +10,7 @@ function AdminPage() {
     <div>
       <ListingEditor />
       <CustomListingEditor />
+      <CustomerPipeline />
     </div>
   )
 }

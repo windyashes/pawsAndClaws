@@ -5,10 +5,11 @@
 - A table with prices and details for customs
 - An admin login with admin page
 - Ability on the admin page to create, edit, and delete pre-made and custom listings
+- Pipeline on the admin page to track customer info and order progress
 
 ## Planned Features
 - Adding a social feed on the website that displays business account posts on ig/twitter/tiktok
-- adding a pipeline on the admin page to track customer info and order progress
+- Portfolio to display our best works
 - making it pretty :)
 
 ## Tools used:
