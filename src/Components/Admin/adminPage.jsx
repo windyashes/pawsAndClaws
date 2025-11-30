@@ -2,13 +2,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ListingEditor from './Listing editor/listingEditor';
-import ListingCreator from './Listing Creator/listingCreator';
 import CustomerPipeline from './Customer Pipeline/customerPipeline';
+import CustomListingEditor from './Custom Listing Editor/customListingEditor';
 
 function AdminPage() {
   return (
-    <div>this is the admin page.
+    <div>
       <ListingEditor />
+      <CustomListingEditor />
     </div>
   )
 }

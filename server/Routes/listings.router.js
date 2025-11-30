@@ -102,6 +102,120 @@ router.get('/custom', async (req, res) => {
 });
 
 /**
+ * POST route for creating a new custom listing
+ */
+router.post('/custom', async (req, res) => {
+  const { title, description, image_link, starting_price } = req.body;
+
+  if (!title || !starting_price) {
+    return res.status(400).json({
+      success: false,
+      message: 'Title and starting price are required'
+    });
+  }
+
+  try {
+    const query = `
+      INSERT INTO custom_listings (title, description, image_link, starting_price)
+      VALUES ($1, $2, $3, $4)
+      RETURNING id, title, description, image_link, starting_price
+    `;
+
+    const result = await pool.query(query, [title, description || null, image_link || null, starting_price]);
+
+    res.status(201).json({
+      success: true,
+      listing: result.rows[0]
+    });
+  } catch (error) {
+    console.error('Error creating custom listing:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error creating custom listing'
+    });
+  }
+});
+
+/**
+ * PUT route for updating a custom listing
+ */
+router.put('/custom/:id', async (req, res) => {
+  const { id } = req.params;
+  const { title, description, image_link, starting_price } = req.body;
+
+  if (!title || !starting_price) {
+    return res.status(400).json({
+      success: false,
+      message: 'Title and starting price are required'
+    });
+  }
+
+  try {
+    const query = `
+      UPDATE custom_listings
+      SET title = $1, description = $2, image_link = $3, starting_price = $4
+      WHERE id = $5
+      RETURNING id, title, description, image_link, starting_price
+    `;
+
+    const result = await pool.query(query, [title, description || null, image_link || null, starting_price, id]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Listing not found'
+      });
+    }
+
+    res.json({
+      success: true,
+      listing: result.rows[0]
+    });
+  } catch (error) {
+    console.error('Error updating custom listing:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error updating custom listing'
+    });
+  }
+});
+
+/**
+ * DELETE route for deleting a custom listing
+ */
+router.delete('/custom/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const query = `
+      DELETE FROM custom_listings
+      WHERE id = $1
+      RETURNING id
+    `;
+
+    const result = await pool.query(query, [id]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Listing not found'
+      });
+    }
+
+    res.json({
+      success: true,
+      message: 'Listing deleted successfully'
+    });
+  } catch (error) {
+    console.error('Error deleting custom listing:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error deleting custom listing'
+    });
+  }
+});
+
+/**
  * PUT route for updating a premade listing
  */
 router.put('/premade/:id', async (req, res) => {
