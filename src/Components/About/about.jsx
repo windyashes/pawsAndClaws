@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function About() {
   return (
-    <Container className="my-5">
+    <Container className="my-5" id='aboutSection'>
       <Row className="g-4">
         {/* Image Section */}
         <Col xs={12} md={6}>

@@ -60,7 +60,7 @@ function Customs() {
   }
 
   return (
-    <Container className="my-5">
+    <Container className="my-5" id='customsSection'>
       <h2 className="mb-4">Custom Listings</h2>
       {listings.length === 0 ? (
         <p className="text-center text-muted">No custom listings available at this time.</p>

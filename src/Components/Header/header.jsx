@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from '../Admin/Login/login';
 import useAuthStore from '../../store/authStore';
 
-function Header() {
+function Header({ sectionRefs }) {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const logout = useAuthStore((state) => state.logout);
@@ -24,6 +24,10 @@ function Header() {
     setShowLoginModal(false);
   };
 
+  const scrollHandler = (sectionId) => {
+    document.getElementById(sectionId).scrollIntoView();
+  };
+
   return (
     <>
       <Navbar bg="light" expand="lg" sticky="top" className="shadow-sm">
@@ -36,11 +40,11 @@ function Header() {
           
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/portfolio">Portfolio</Nav.Link>
-              <Nav.Link href="/customs">Customs</Nav.Link>
-              <Nav.Link href="/social">Social Feed</Nav.Link>
+              <Nav.Link onClick={() => scrollHandler('premadeSection')} hidden={isAuthenticated}>Pre-Mades</Nav.Link>
+              <Nav.Link onClick={() => scrollHandler('customsSection')} hidden={isAuthenticated}>Customs</Nav.Link>
+              <Nav.Link onClick={() => scrollHandler('aboutSection')} hidden={isAuthenticated}>About</Nav.Link>
+              <Nav.Link onClick={() => scrollHandler('socialSection')} hidden={isAuthenticated}>Social Feed</Nav.Link>
+              <Nav.Link onClick={() => scrollHandler('portfolioSection')} hidden={isAuthenticated}>Portfolio</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link onClick={handleLoginClick}>

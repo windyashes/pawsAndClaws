@@ -14,14 +14,14 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header/>
       {isAuthenticated ? <AdminPage /> : (
         <>
-          <PremadeList />
-          <Customs />
-          <About />
-          <SocialFeed />
-          <Portfolio />
+          <PremadeList/>
+          <Customs/>
+          <About/>
+          <SocialFeed/>
+          <Portfolio/>
         </>
       )}
     </div>

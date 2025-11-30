@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function SocialFeed() {
   return (
-    <div>social feed</div>
+    <div id='socialSection'>social feed</div>
   )
 }
 
